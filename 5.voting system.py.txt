@@ -1,0 +1,37 @@
+votes = {
+    "A": 0,
+    "B": 0,
+    "C": 0
+}
+
+while True:
+    print("\n1. Vote")
+    print("2. Show Results")
+    print("3. Exit")
+
+    choice = input("Enter choice: ")
+
+  
+    if choice == "1":
+        vote = input("Vote (A/B/C): ").upper()
+
+        if vote in votes:
+            votes[vote] += 1
+            print("Vote recorded")
+        else:
+            print("Invalid candidate")
+
+
+    elif choice == "2":
+        for name, count in votes.items():
+            print(f"{name}: {count} votes")
+
+        winner = max(votes, key=votes.get)
+        print("Winner:", winner)
+
+    elif choice == "3":
+        print("Bye")
+        break
+
+    else:
+        print("Invalid choice")
